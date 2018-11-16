@@ -1,0 +1,1 @@
+Este proyecto tendra como objetivo el analisis de sentimiento por medio de Spark Streaming y Kafka a traves de Twitter Streaming API y Python
