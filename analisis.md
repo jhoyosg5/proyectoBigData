@@ -10,6 +10,7 @@ cómo procesar flujos de datos en vivo usando las API de transmisión de Spark y
 
 ## Arquitectura preliminar de datos
 
+![alt text](https://github.com/jhoyosg5/proyectoBigData/blob/master/Untitled%20Diagram.jpg)
 
 
 
