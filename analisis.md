@@ -5,8 +5,30 @@
 ### integrante
 Jorge Andres Hoyos
 
-## proyecto a realizar
+## Problema a resolver
 cómo procesar flujos de datos en vivo usando las API de transmisión de Spark y Python, ademas realizar un análisis de sentimiento básico de tweets en tiempo real, usando un sistema de encolamiento de Kaftka
+
+## Arquitectura preliminar de datos
+
+
+
+
+## Fuente y naturaleza de los datos
+Los datos provendran de la red social www.twitter.com del feed de una cuenta cuya credenciales deben ser dadas a la aplicacion, estos datos seran en tiempo real via Streaming los cuales sera extraidos usando  Tweepy, la cual accede y extrae los tweets a traves de la API, estos tweets tienen un formato no estructurado.
+
+
+## Sistema de ingesta de datos
+La ingesta de datos sera a traves de Apache Kaftka, la cual usa mensajeria de publicacion-suscripcion y ofrece un servicio distribuido y replicado.
+Se usara Tweepy, para acceder a la API de twitter, y poder extraer los tweets.
+
+## Almacenamiento de los datos
+Todos los datos generados a traves de spark streaming seran guardado en HDFS, como Data Nodes.
+
+## Analisis de los datos 
+Luego de que Spark Streaming recibe los datos por parte de kaftka, estos son procesados con el Spark Engine, para luego determinar los tweets en dos categorias
+ * Positivos
+ * negativos
+
 
 ## Marco Teorico
 
@@ -19,6 +41,12 @@ La transmisión de datos también se puede explicar como una tecnología utiliza
 
 ### Apache Spark 
 Apache Spark es un marco de computación en clúster de uso general distribuido de código abierto. Originalmente desarrollado en la Universidad de California, AMPLab de Berkeley, el código base de Spark fue luego donado a Apache Software Foundation, que lo ha mantenido desde entonces. Spark proporciona una interfaz para programar clústeres completos con paralelismo de datos implícito y tolerancia a fallas.
+
+### Spark Streaming 
+Spark Streaming utiliza la capacidad de programación rápida de Spark Core para realizar análisis de transmisión. Ingiere datos en mini lotes y realiza transformaciones RDD en esos mini lotes de datos. Este diseño permite utilizar el mismo conjunto de código de aplicación escrito para el análisis por lotes en el análisis de transmisión, lo que facilita la implementación fácil de la arquitectura lambda.  Sin embargo, esta conveniencia viene con la penalización de latencia igual a la duración de mini lotes. Otros motores de transmisión de datos que procesan evento por evento en lugar de en mini lotes incluyen Storm y el componente de transmisión de Flink. Spark Streaming tiene soporte incorporado para consumir desde sockets de Kafka, Flume, Twitter, ZeroMQ, Kinesis y TCP / IP.
+
+### HDFS 
+El HDFS es un sistema de archivos distribuido, escalable y portátil escrito en Java para el marco de Hadoop. Algunos consideran que es un almacén de datos debido a su falta de compatibilidad con POSIX,  pero proporciona comandos de shell y métodos de interfaz de programación de aplicaciones Java (API) que son similares a otros sistemas de archivos.  Hadoop se divide en dos HDFS y MapReduce. HDFS se utiliza para almacenar los datos y MapReduce se utiliza para el procesamiento de los datos.
 
 ### Apache Kafka
  Es una plataforma de software de procesamiento de flujo de código abierto desarrollada por Apache Software Foundation, escrita en Scala y Java. El objetivo del proyecto es proporcionar una plataforma unificada, de alto rendimiento y baja latencia para el manejo de las fuentes de datos en tiempo real. Su capa de almacenamiento es esencialmente una "cola de mensajes de publicación / sub de gran escala escalable diseñada como un registro de transacciones distribuidas" , lo que la hace altamente valiosa para las infraestructuras empresariales para procesar datos de transmisión. Además, Kafka se conecta a sistemas externos (para importación / exportación de datos) a través de Kafka Connect y proporciona Kafka Streams, una biblioteca de procesamiento de secuencias de Java.
