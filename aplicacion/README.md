@@ -1,46 +1,46 @@
-#Twitter Sentiment Analytics using Apache Spark Streaming APIs and Python 
+#Analitica de sentimientos de Twitter  usando Apache Spark Streaming APIs y Python
 
-In this project, I learnt about processing live data streams using Spark’s streaming APIs and Python. I performed a basic sentiment analysis of real-time tweets. In addition, I also got a basic introduction to Apache Kafka, which is a queuing service for data streams. 
+En este proyecto, se busca cómo procesar flujos de datos en vivo usando las API de transmisión de Spark y Python. Se realizo un análisis de sentimiento básico de tweets en tiempo real. Además, también se obtuvo una introducción básica a Apache Kafka, que es un servicio de colas para flujos de datos.
 
-##Requirements
-One of the first requirements is to get access to the streaming data; in this case, real-time tweets. Twitter provides a very 
-convenient API to fetch tweets in a streaming manner 
- 
-In addition, I also used Kafka to buffer the tweets before processing. Kafka provides a distributed queuing service which can be used to store the data when the data creation rate is more than processing rate. It also has several other uses. 
+## Requisitos
+Uno de los primeros requisitos es tener acceso a los datos de transmisión; En este caso, tweets en tiempo real. Twitter proporciona una muy
+API conveniente para obtener tweets de una manera streaming
+ 
+Además, también usé Kafka para amortiguar los tweets antes de procesarlos. Kafka proporciona un servicio de colas distribuido que puede usarse para almacenar los datos cuando la tasa de creación de datos es más que la tasa de procesamiento. 
 
-###Project Setup 
- 
-####Installing Required Python Libraries 
-I have provided a text file containing the required python packages: `requirements.txt`
+### Configuración del proyecto
+ 
+#### Instalación de las librerias Python requeridas
+el proyectp posee  un archivo de texto que contiene los paquetes de Python necesarios: `Requirements.txt`
 
-To install all of these at once, simply run (only missing packages will be installed):    
-`$ sudo pip install -r requirements.txt`
- 
-####Installing and Initializing Kafka 
-Download and extract the latest binary from https://kafka.apache.org/downloads.html
+Para instalar todos estos a la vez, simplemente ejecute (solo se instalarán los paquetes faltantes):
+`$ sudo pip install -r Requirements.txt`
+ 
+#### Instalación e inicialización de Kafka
+Descargue y extraiga el último binario de https://kafka.apache.org/downloads.html
 
-#####Start zookeeper service:  
-`$ bin/zookeeper-server-start.sh config/zookeeper.properties`
- 
-#####Start kafka service: 
-`$ bin/kafka-server-start.sh config/server.properties`
- 
-#####Create a topic named twitterstream in kafka: 
-`$ bin/kafka-topics.sh --create --zookeeper --partitions 1 --topic twitterstream localhost:2181 --replication-factor 1`
+##### Iniciar el servicio zookeeper:
+`$ bin / zookeeper-server-start.sh config / zookeeper.properties`
+ 
+##### Iniciar el servicio kafka:
+`$ bin / kafka-server-start.sh config / server.properties`
+ 
+##### Cree un tema llamado twitterstream en kafka:
+`$ bin / kafka-topics.sh --create --zookeeper --partitions 1 --topic twitterstream localhost: 2181 --replication-factor 1`
 
- 
-####Using the Twitter Streaming API 
-In order to download the tweets from twitter streaming API and push them to kafka queue, I have created a python script
-app.py. The script will need your twitter authentication tokens (keys).
+ 
+#### Usando la API de streaming de Twitter
+Para descargar los tweets de la API de transmisión de twitter y enviarlos a la cola kafka, se ha creado un script de python
+app.py. El script necesitará sus tokens (claves) de autenticación de Twitter.
 
-Once you have your authentication tokens, create or update the `twitter-app-credentials.txt` with these  credentials.
+Una vez que tenga sus tokens de autenticación, cree o actualice el `twitter-app-credentials.txt` con estas credenciales.
 
-After updating the text file with your twitter keys, you can start downloading tweets from the twitter stream API and push them to the twitterstream topic in Kafka. Do this by running the script as follows:   
-`$ python app.py`   
-Note: This program should be kept running for collecting tweets. 
- 
-#####To check if the data is landing in Kafka: 
-`$ bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic twitterstream --from-beginning`
+Después de actualizar el archivo de texto con sus claves de twitter, puede comenzar a descargar tweets de la API de Twitter y enviarlos a la aplicacion twitterstream en Kafka. Haga esto ejecutando el script de la siguiente manera:
+`$ python app.py`
+Nota: este programa debe mantenerse funcionando para recopilar tweets.
+ 
+##### Para verificar si los datos están aterrizando en Kafka:
+`$ bin / kafka-console-consumer.sh --zookeeper localhost: 2181 --time twitterstream --from-beginning`
 
-#####Running the Stream Analysis Program:
-`$ $SPARK_HOME/bin/spark-submit --packages org.apache.spark:spark-streaming-kafka_2.10:1.5.1 twitterStream.py`
+##### Ejecutando el programa Stream Analysis:
+`$ $ SPARK_HOME / bin / spark-submit --paquetes org.apache.spark: spark-streaming-kafka_2.10: 1.5.1 twitterStream.py`
