@@ -25,7 +25,7 @@ La ingesta de datos sera a traves de Apache Kaftka, la cual usa mensajeria de pu
 Se usara Tweepy, para acceder a la API de twitter, y poder extraer los tweets.
 
 ## Almacenamiento de los datos
-No cuenta con almacenamiento de datos
+Para el almacenamiento de datos se tiene pensado usar HDFS para guardar la informacion generada a traves de spark streaming como Data Nodes (todavia no se ha implementado)
 
 ## Analisis de los datos 
 Luego de que Spark Streaming recibe los datos por parte de kaftka, estos son procesados con el Spark Engine, para luego determinar los tweets en dos categorias
