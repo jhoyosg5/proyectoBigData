@@ -1,17 +1,17 @@
 # Analitica de sentimientos de Twitter  usando Apache Spark Streaming APIs y Python
 
-En este proyecto, se busca cómo procesar flujos de datos en vivo usando las API de transmisión de Spark y Python. Se realizo un análisis de sentimiento básico de tweets en tiempo real. Además, también se obtuvo una introducción básica a Apache Kafka, que es un servicio de colas para flujos de datos.
+En este proyecto, busca cómo procesar flujos de datos en vivo usando las API de transmisión de Spark y Python. Se realizo un análisis de sentimiento básico de tweets en tiempo real. Además, también se obtuvo una introducción básica a Apache Kafka, que es un servicio de colas para flujos de datos.
 
 ## Requisitos
 Uno de los primeros requisitos es tener acceso a los datos de transmisión; En este caso, tweets en tiempo real. Twitter proporciona una muy
-API conveniente para obtener tweets de una manera streaming
+API conveniente para obtener tweets de  manera streaming.
  
-Además, también usé Kafka para amortiguar los tweets antes de procesarlos. Kafka proporciona un servicio de colas distribuido que puede usarse para almacenar los datos cuando la tasa de creación de datos es más que la tasa de procesamiento. 
+Además, también se usó Kafka para amortiguar los tweets antes de procesarlos. Kafka proporciona un servicio de colas distribuido que puede usarse para almacenar los datos cuando la tasa de creación de datos es mayor que la tasa de procesamiento. 
 
 ### Configuración del proyecto
  
 #### Instalación de las librerias Python requeridas
-el proyectp posee  un archivo de texto que contiene los paquetes de Python necesarios: `Requirements.txt`
+el proyecto posee  un archivo de texto que contiene los paquetes de Python necesarios: `Requirements.txt`
 
 Para instalar todos estos a la vez, simplemente ejecute (solo se instalarán los paquetes faltantes):
 `$ sudo pip install -r Requirements.txt`
@@ -25,7 +25,7 @@ Descargue y extraiga el último binario de https://kafka.apache.org/downloads.ht
 ##### Iniciar el servicio kafka:
 `$ bin / kafka-server-start.sh config / server.properties`
  
-##### Cree un tema llamado twitterstream en kafka:
+##### Cree un 'topic' llamado twitterstream en kafka:
 `$ bin / kafka-topics.sh --create --zookeeper --partitions 1 --topic twitterstream localhost: 2181 --replication-factor 1`
 
  

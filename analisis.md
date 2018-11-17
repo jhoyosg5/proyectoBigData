@@ -6,7 +6,7 @@
 Jorge Andres Hoyos
 
 ## Problema a resolver
-cómo procesar flujos de datos en vivo usando las API de transmisión de Spark y Python, ademas realizar un análisis de sentimiento básico de tweets en tiempo real, usando un sistema de encolamiento de Kaftka
+En este proyecto, busca cómo procesar flujos de datos en vivo usando las API de transmisión de Spark y Python. Se realizo un análisis de sentimiento básico de tweets en tiempo real. Además, también se obtuvo una introducción básica a Apache Kafka, que es un servicio de colas para flujos de datos.
 
 ## Arquitectura preliminar de datos
 
