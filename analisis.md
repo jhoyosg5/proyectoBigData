@@ -5,6 +5,9 @@
 ### integrante
 Jorge Andres Hoyos
 
+### Video Explicativo
+[Video](https://youtu.be/gaSIWHwzrIg)
+
 ## Problema a resolver
 En este proyecto, busca cómo procesar flujos de datos en vivo usando las API de transmisión de Spark y Python. Se realizo un análisis de sentimiento básico de tweets en tiempo real. Además, también se obtuvo una introducción básica a Apache Kafka, que es un servicio de colas para flujos de datos.
 
