@@ -53,8 +53,13 @@ if __name__ == '__main__':
     api = tweepy.API(auth)
 
     # Crea el flujo de datos y lo enlaza al listener
-    stream = tweepy.Stream(auth, listener = TweeterStreamListener(api))
-
+    try:
+    #Reglas de filtro, todos los tweets pasan por este filtro en tiempo real
+    #stream.filter(track = ['love', 'hate'], languages = ['en'])
+        stream = tweepy.Stream(auth, listener = TweeterStreamListener(api))
+        stream.filter(locations=[-180,-90,180,90], languages = ['en'])
+    except tweepy.TweepError as e:
+        print(e)
     #Reglas de filtro, todos los tweets pasan por este filtro en tiempo real
     #stream.filter(track = ['love', 'hate'], languages = ['en'])
     stream.filter(locations=[-180,-90,180,90], languages = ['en'])
