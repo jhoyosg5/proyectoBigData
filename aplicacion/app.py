@@ -1,8 +1,8 @@
+# -*- coding: utf-8 -*-
 import json
 from kafka import SimpleProducer, KafkaClient
 import tweepy
 import configparser
-# coding=utf-8
 
 # Nota: Algunas de las importaciones son bibliotecas externas de Python. Son instaladas en la máquina actual.
 # Si está ejecutando un clúster multinodo, debe asegurarse de que estas bibliotecas
